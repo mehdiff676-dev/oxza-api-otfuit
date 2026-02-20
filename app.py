@@ -198,7 +198,7 @@ async def get_banner(uid: str):
     if not uid:
         raise HTTPException(status_code=400, detail="UID required")
 
-    resp = await client.get(f"{INFO_API_URL}?uid={uid}")
+    resp = await client.get(f"{INFO_API_URL}?uid={uid}&region=me")
     if resp.status_code != 200:
         raise HTTPException(status_code=502, detail="Info API Error")
 
